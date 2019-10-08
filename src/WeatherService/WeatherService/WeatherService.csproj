@@ -5,6 +5,7 @@
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
     <WarningsAsErrors>CS8600;CS8602;CS8603;CS8618</WarningsAsErrors>
+    <UserSecretsId>bf6eda93-96aa-41b9-a542-b20dd7685b1b</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
