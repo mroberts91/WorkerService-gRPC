@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29318.209
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherService", "WeatherService\WeatherService.csproj", "{09ECCB7B-716D-4388-B3CC-66C36AC7A638}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09ECCB7B-716D-4388-B3CC-66C36AC7A638}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09ECCB7B-716D-4388-B3CC-66C36AC7A638}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09ECCB7B-716D-4388-B3CC-66C36AC7A638}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09ECCB7B-716D-4388-B3CC-66C36AC7A638}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0FD84564-DE0C-41F2-B0B8-D638312BB386}
+	EndGlobalSection
+EndGlobal
