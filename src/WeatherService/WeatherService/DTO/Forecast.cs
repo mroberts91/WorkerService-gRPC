@@ -7,8 +7,6 @@ using static Newtonsoft.Json.NullValueHandling;
 
 namespace WeatherService.DTO
 {
-    
-
     public class Forecast
     {
         public static Forecast FromJson(string json) => 
@@ -35,6 +33,9 @@ namespace WeatherService.DTO
         [JsonProperty("rain", NullValueHandling = Ignore)]
         public Rain? Rain { get; set; }
 
+        [JsonProperty("snow", NullValueHandling = Ignore)]
+        public Snow? Snow { get; set; }
+
         [JsonProperty("clouds", NullValueHandling = Ignore)]
         public Clouds? Clouds { get; set; }
 
@@ -45,13 +46,13 @@ namespace WeatherService.DTO
         public Sys? Sys { get; set; }
 
         [JsonProperty("timezone", NullValueHandling = Ignore)]
-        public long? Timezone { get; set; }
+        public long? TimezoneShift { get; set; }
 
         [JsonProperty("id", NullValueHandling = Ignore)]
-        public long? Id { get; set; }
+        public long? CityID { get; set; }
 
         [JsonProperty("name", NullValueHandling = Ignore)]
-        public string? Name { get; set; }
+        public string? CityName { get; set; }
 
         [JsonProperty("cod", NullValueHandling = Ignore)]
         public long? Cod { get; set; }
@@ -88,12 +89,30 @@ namespace WeatherService.DTO
 
         [JsonProperty("temp_max", NullValueHandling = Ignore)]
         public double? TempMax { get; set; }
+
+        [JsonProperty("sea_level", NullValueHandling = Ignore)]
+        public long? SeaLevelPressure { get; set; }
+
+        [JsonProperty("grnd_level", NullValueHandling = Ignore)]
+        public long? GroundLevelPressure { get; set; }
+
     }
 
     public class Rain
     {
+        [JsonProperty("1h", NullValueHandling = Ignore)]
+        public double? OneHourRainfall { get; set; }
         [JsonProperty("3h", NullValueHandling = Ignore)]
         public double? ThreeHourRainfall { get; set; }
+    }
+
+    public class Snow
+    {
+
+        [JsonProperty("1h", NullValueHandling = Ignore)]
+        public double? OneHourSnowfall { get; set; }
+        [JsonProperty("3h", NullValueHandling = Ignore)]
+        public double? ThreeHourSnowfall { get; set; }
     }
 
     public class Sys
@@ -129,7 +148,18 @@ namespace WeatherService.DTO
         public string? Description { get; set; }
 
         [JsonProperty("icon", NullValueHandling = Ignore)]
-        public string? Icon { get; set; }
+        public string? Icon 
+        { 
+            get
+            {
+                if (string.IsNullOrWhiteSpace(Icon)) return null;
+                return $"http://openweathermap.org/img/wn/{Icon}@2x.png";
+            }
+            set
+            {
+                Icon = value;
+            } 
+        }
     }
 
     public class Wind
@@ -148,7 +178,6 @@ namespace WeatherService.DTO
 
     internal static class Converter
     {
-        private static readonly DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
         public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
         {
@@ -159,19 +188,5 @@ namespace WeatherService.DTO
                 new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
             },
         };
-
-        public static double? ConvertToFahrenheit(double? kelvin)
-        {
-            if (!kelvin.HasValue) return null;
-
-            return ((kelvin.Value - 273.15) * 9)/5 + 32;
-        }
-
-        public static DateTime? UnixToDateTime(long? unix)
-        {
-            if (!unix.HasValue) return null;
-
-            return epoch.AddSeconds(unix.Value);
-        }
     }
 }
