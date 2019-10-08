@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 
 namespace WeatherService
 {
-    public class GreeterService : Greeter.GreeterBase
+    public class GreeterService : Weather.WeatherBase
     {
         private readonly ILogger<GreeterService> _logger;
         public GreeterService(ILogger<GreeterService> logger)
