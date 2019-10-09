@@ -3,5 +3,7 @@
     public class AppSettings
     { 
         public string? ApiKey { get; set; }
+
+        public double? ApiInterval { get; set; }
     }
 }

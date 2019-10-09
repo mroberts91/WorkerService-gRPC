@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WeatherService.Config;
+using WeatherService.Data;
 
 namespace WeatherService
 {
@@ -32,6 +33,7 @@ namespace WeatherService
             services.AddMemoryCache();
             services.AddLogging();
             services.AddSingleton(appSettings);
+            services.AddDbContext<WeatherContext>();
             
         }
 

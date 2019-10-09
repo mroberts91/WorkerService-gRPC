@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using static Newtonsoft.Json.NullValueHandling;
 
-namespace WeatherService.Dto
+namespace WeatherService.Data.Models
 {
     public class Forecast
     {
