@@ -67,7 +67,7 @@ namespace WeatherService.Data.Models
     {
         public long WindID { get; set; }
         public double? Speed { get; set; }
-        public int? Direction { get; set; }
+        public long? Direction { get; set; }
     }
 
     public class Snow

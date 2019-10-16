@@ -17,25 +17,25 @@ namespace WeatherService.Dto
 
         //[JsonProperty("weather", NullValueHandling = Ignore)]
         //public List<Conditions>? Weather { get; set; }
-        [JsonProperty("weather/main", NullValueHandling = Ignore)]
-        public string? Conditon { get; set; }
+        //[JsonProperty("weather[0]/main", NullValueHandling = Ignore)]
+        //public string? Conditon { get; set; }
 
-        [JsonProperty("weather/description", NullValueHandling = Ignore)]
-        public string? ConditionDescription { get; set; }
+        //[JsonProperty("weather[0]/description", NullValueHandling = Ignore)]
+        //public string? ConditionDescription { get; set; }
 
-        [JsonProperty("weather/icon", NullValueHandling = Ignore)]
-        public string? ConditionIcon
-        {
-            get
-            {
-                if (string.IsNullOrWhiteSpace(ConditionIcon)) return null;
-                return $"http://openweathermap.org/img/wn/{ConditionIcon}@2x.png";
-            }
-            set
-            {
-                ConditionIcon = value;
-            }
-        }
+        //[JsonProperty("weather[0]/icon", NullValueHandling = Ignore)]
+        //public string? ConditionIcon
+        //{
+        //    get
+        //    {
+        //        if (string.IsNullOrWhiteSpace(ConditionIcon)) return null;
+        //        return $"http://openweathermap.org/img/wn/{ConditionIcon}@2x.png";
+        //    }
+        //    set
+        //    {
+        //        ConditionIcon = value;
+        //    }
+        //}
 
         //[JsonProperty("base", NullValueHandling = Ignore)]
         //public string? Base { get; set; }
@@ -44,7 +44,7 @@ namespace WeatherService.Dto
         public Main? Main { get; set; }
 
         [JsonProperty("visibility", NullValueHandling = Ignore)]
-        public long? Visibility { get; set; }
+        public double? Visibility { get; set; }
 
         [JsonProperty("wind", NullValueHandling = Ignore)]
         public Wind? Wind { get; set; }
@@ -61,8 +61,8 @@ namespace WeatherService.Dto
         //[JsonProperty("dt", NullValueHandling = Ignore)]
         //public long? LastUpdate { get; set; }
 
-        [JsonProperty("sys", NullValueHandling = Ignore)]
-        public Sys? Sys { get; set; }
+        //[JsonProperty("sys", NullValueHandling = Ignore)]
+        //public Sys? Sys { get; set; }
 
         //[JsonProperty("timezone", NullValueHandling = Ignore)]
         //public long? TimezoneShift { get; set; }
@@ -89,7 +89,7 @@ namespace WeatherService.Dto
         public double? Temperature { get; set; }
 
         [JsonProperty("pressure", NullValueHandling = Ignore)]
-        public long? Pressure { get; set; }
+        public double? Pressure { get; set; }
 
         [JsonProperty("humidity", NullValueHandling = Ignore)]
         public long? Humidity { get; set; }
