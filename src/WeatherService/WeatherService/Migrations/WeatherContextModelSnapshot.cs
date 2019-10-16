@@ -18,17 +18,19 @@ namespace WeatherService.Migrations
 
             modelBuilder.Entity("WeatherService.Data.Models.City", b =>
                 {
-                    b.Property<int>("ZipCode")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("CityId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("ZipCode")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("CityName")
                         .HasColumnType("TEXT");
 
                     b.Property<long?>("ConditionsID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CountyName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsUpdated")
                         .HasColumnType("INTEGER");
 
                     b.Property<double?>("Lattitude")
@@ -37,11 +39,14 @@ namespace WeatherService.Migrations
                     b.Property<double?>("Longitude")
                         .HasColumnType("REAL");
 
-                    b.Property<DateTime>("Updated")
+                    b.Property<string>("StateAbbr")
                         .HasColumnType("TEXT");
 
-                    b.Property<double?>("Visibility")
-                        .HasColumnType("REAL");
+                    b.Property<string>("StateName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Updated")
+                        .HasColumnType("TEXT");
 
                     b.Property<long?>("WeatherID")
                         .HasColumnType("INTEGER");
@@ -60,6 +65,15 @@ namespace WeatherService.Migrations
                     b.Property<long>("ConditionsID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("ConditionDescription")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ConditionIcon")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Conditon")
+                        .HasColumnType("TEXT");
 
                     b.Property<long?>("RainID")
                         .HasColumnType("INTEGER");
@@ -128,6 +142,9 @@ namespace WeatherService.Migrations
                         .HasColumnType("REAL");
 
                     b.Property<double?>("Temperature")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("Visibility")
                         .HasColumnType("REAL");
 
                     b.HasKey("WeatherID");

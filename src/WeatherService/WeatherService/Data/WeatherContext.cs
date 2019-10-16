@@ -9,19 +9,7 @@ namespace WeatherService.Data
 {
     public class WeatherContext : DbContext
     {
+        public WeatherContext(DbContextOptions<WeatherContext> options):base(options){}
         public DbSet<City>? City { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            => optionsBuilder.UseSqlite("Data Source=weather.db");
-
-        //protected override void OnModelCreating(ModelBuilder builder)
-        //{
-            
-        //}
-        
-    }
-
-    public class ZipCodeContext: DbContext
-    {
-
     }
 }

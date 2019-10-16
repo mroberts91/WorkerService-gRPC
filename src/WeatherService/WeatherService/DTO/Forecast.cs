@@ -12,14 +12,33 @@ namespace WeatherService.Dto
         public static Forecast FromJson(string json) => 
             JsonConvert.DeserializeObject<Forecast>(json, Converter.Settings);
 
-        [JsonProperty("coord", NullValueHandling = Ignore)]
-        public Coord? Coord { get; set; }
+        //[JsonProperty("coord", NullValueHandling = Ignore)]
+        //public Coord? Coord { get; set; }
 
-        [JsonProperty("weather", NullValueHandling = Ignore)]
-        public List<Weather?> Weather { get; set; } = new List<Weather?>();
+        //[JsonProperty("weather", NullValueHandling = Ignore)]
+        //public List<Conditions>? Weather { get; set; }
+        [JsonProperty("weather/main", NullValueHandling = Ignore)]
+        public string? Conditon { get; set; }
 
-        [JsonProperty("base", NullValueHandling = Ignore)]
-        public string? Base { get; set; }
+        [JsonProperty("weather/description", NullValueHandling = Ignore)]
+        public string? ConditionDescription { get; set; }
+
+        [JsonProperty("weather/icon", NullValueHandling = Ignore)]
+        public string? ConditionIcon
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(ConditionIcon)) return null;
+                return $"http://openweathermap.org/img/wn/{ConditionIcon}@2x.png";
+            }
+            set
+            {
+                ConditionIcon = value;
+            }
+        }
+
+        //[JsonProperty("base", NullValueHandling = Ignore)]
+        //public string? Base { get; set; }
 
         [JsonProperty("main", NullValueHandling = Ignore)]
         public Main? Main { get; set; }
@@ -39,23 +58,14 @@ namespace WeatherService.Dto
         [JsonProperty("clouds", NullValueHandling = Ignore)]
         public Clouds? Clouds { get; set; }
 
-        [JsonProperty("dt", NullValueHandling = Ignore)]
-        public long? LastUpdate { get; set; }
+        //[JsonProperty("dt", NullValueHandling = Ignore)]
+        //public long? LastUpdate { get; set; }
 
         [JsonProperty("sys", NullValueHandling = Ignore)]
         public Sys? Sys { get; set; }
 
-        [JsonProperty("timezone", NullValueHandling = Ignore)]
-        public long? TimezoneShift { get; set; }
-
-        [JsonProperty("id", NullValueHandling = Ignore)]
-        public long? CityID { get; set; }
-
-        [JsonProperty("name", NullValueHandling = Ignore)]
-        public string? CityName { get; set; }
-
-        [JsonProperty("cod", NullValueHandling = Ignore)]
-        public long? Cod { get; set; }
+        //[JsonProperty("timezone", NullValueHandling = Ignore)]
+        //public long? TimezoneShift { get; set; }
     }
 
     public class Clouds
@@ -136,13 +146,13 @@ namespace WeatherService.Dto
         public long? SunsetUTC { get; set; }
     }
 
-    public class Weather
+    public class Conditions
     {
-        [JsonProperty("id", NullValueHandling = Ignore)]
-        public long? Id { get; set; }
+        //[JsonProperty("id", NullValueHandling = Ignore)]
+        //public long? Id { get; set; }
 
         [JsonProperty("main", NullValueHandling = Ignore)]
-        public string? Main { get; set; }
+        public string? Conditon { get; set; }
 
         [JsonProperty("description", NullValueHandling = Ignore)]
         public string? Description { get; set; }
